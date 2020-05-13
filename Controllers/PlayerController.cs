@@ -2,23 +2,27 @@
 using System.Collections.Generic;
 using System.Text;
 using TurnBasedBattler.Services;
+using TurnBasedBattler.Views;
 
 namespace TurnBasedBattler.Controllers
 {
     public class PlayerController
     {
         private readonly PlayerService playerService;
+        private readonly PlayerView playerView;
 
-        public PlayerController(PlayerService playerService)
+         
+        public PlayerController(PlayerService playerService, PlayerView playerView)
         {
             this.playerService = playerService;
+            this.playerView = playerView;
         }
 
         public void DisplayStats(int id)
         {
             var playerViewModel = this.playerService.GetPlayerById(id);
 
-            //TODO: Add the View
+            playerView.DisplayPlayerAndHeroes(playerViewModel);
         }
     }
 }

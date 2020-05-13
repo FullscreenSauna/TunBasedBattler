@@ -17,5 +17,16 @@ namespace TurnBasedBattler.Models.DTOs
         public int PlayerId { get; set; }
 
         public virtual Player Player { get; set; }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            decimal dodgePercantega = Dodge * 100;
+
+            sb.Append($"{Name}- HP:{Hp} ATK:{Attack}/DEF:{Defence}/MAG:{Magic}/DodgeChance:{dodgePercantega:f0}%");
+
+            return sb.ToString();
+        }
     }
 }
