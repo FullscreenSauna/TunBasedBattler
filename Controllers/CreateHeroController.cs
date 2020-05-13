@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TurnBasedBattler.Controllers
 {
-    class CreateHeroController
+    public class CreateHeroController
     {
 
         public readonly List<Hero> newHeroes;

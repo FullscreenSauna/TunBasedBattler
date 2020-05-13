@@ -6,6 +6,8 @@ namespace TurnBasedBattler.Models.DTOs
 {
     public class HeroViewModel
     {
+        public HeroViewModel()
+        { }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Class { get; set; }
@@ -17,5 +19,6 @@ namespace TurnBasedBattler.Models.DTOs
         public int PlayerId { get; set; }
 
         public virtual Player Player { get; set; }
+
     }
 }
