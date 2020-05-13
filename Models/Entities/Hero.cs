@@ -16,5 +16,15 @@ namespace TurnBasedBattler.Models
         public int PlayerId { get; set; }
 
         public virtual Player Player { get; set; }
+
+        protected Hero(string name, int attack, int deffence, int magic, double dodge, int hp)
+        {
+            Name = name;
+            Attack = attack;
+            Deffence = deffence;
+            Magic = magic;
+            Dodge = dodge;
+            Hp = hp;
+        }
     }
 }
