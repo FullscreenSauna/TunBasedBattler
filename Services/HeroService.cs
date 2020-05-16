@@ -1,6 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using TurnBasedBattler.Models;
+using TurnBasedBattler.Models.DTOs;
+using TurnBasedBattler.Models.Entities;
+using TurnBasedBattler.Models.Entities.Heroes;
+using TurnBasedBattler.Views;
 
 namespace TurnBasedBattler.Services
 {
@@ -13,49 +19,48 @@ namespace TurnBasedBattler.Services
             this.dbContext = dbContext;
         }
 
-        public HeroViewModel CreateHero(string name, string type)
+        public void CreateHero(string name, string type)
         {
-           
-            Hero newHero = null;
 
+            Hero newHero = HeroWithType(name, type);
+
+
+            this.dbContext.Heroes.Add(newHero);
+            this.dbContext.SaveChanges();
+        }
+
+
+        private Hero HeroWithType(string name, string type)
+        {
+            Hero hero = null;
             if (type == "Brute")
             {
-                newHero = new Brute(name);
+                hero = new Brute(name);
             }
             else if (type == "Ranger")
             {
-                newHero = new Ranger(name);
+                hero = new Ranger(name);
             }
             else if (type == "Paladin")
             {
-                newHero = new Paladin(name);
+                hero = new Paladin(name);
             }
             else if (type == "Wizzard")
             {
-                newHero = new Wizzard(name);
+                hero = new Wizzard(name);
             }
             else
             {
                 throw new ArgumentException("The hero type was not correct");
             }
-
-
-            if (newHero != null)
-            {
-                this.dbContext.Heroes.Add(newHero);
-                this.dbContext.SaveChanges();
-            }
-         
+            return hero;
         }
 
-
-        //TODO Make it with HeroViewService
-        //public HeroViewModel CreateHero(HeroViewService newHero, string type)
-        //{}
-
-
-
-
-
+        //public void DeleteHero(HeroViewModel deadHero)
+        //{
+        //    this.dbContext.Heroes.Remove(deadHero);
+        //    this.dbContext.SaveChanges();
+        //}
     }
+
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using TurnBasedBattler.Models;
@@ -11,7 +12,6 @@ namespace TurnBasedBattler.Services
     public class PlayerService
     {
         private readonly tunbasedbattlerContext dbContext;
-
         public PlayerService(tunbasedbattlerContext dbContext)
         {
             this.dbContext = dbContext;
@@ -33,5 +33,7 @@ namespace TurnBasedBattler.Services
 
             return playerViewModel;
         }
+
+        
     }
 }

@@ -10,7 +10,7 @@ namespace TurnBasedBattler.Models.Entities.Heroes
         private const int PaladinAttackModifier = 2;
         private const int PaladinDefenceModifier = 5;
         private const int PaladinMagicModifier = 1;
-        private const decimal PaladinDodgeModifier = 0.01;
+        private const decimal PaladinDodgeModifier = 0.01M;
         public Paladin(string name)
             : base(name, PaladinAttackModifier, PaladinDefenceModifier, PaladinMagicModifier, PaladinDodgeModifier, InitialPaladinHp)
         {

@@ -10,7 +10,7 @@ namespace TurnBasedBattler.Models.Entities.Heroes
         private const int BruteAttackModifier = 5;
         private const int BruteDefenceModifier = 2;
         private const int BruteMagicModifier = 1;
-        private const decimal BruteDodgeModifier = 0.02;
+        private const decimal BruteDodgeModifier = 0.02M;
 
 
         public Brute(string name)

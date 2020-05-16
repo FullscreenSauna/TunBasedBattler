@@ -10,7 +10,7 @@ namespace TurnBasedBattler.Models.Entities.Heroes
         private const int WizzardAttackModifier = 1;
         private const int WizzardDefenceModifier = -2;
         private const int WizzardMagicModifier = 8;
-        private const decimal WizzardDodgeModifier = 0.02;
+        private const decimal WizzardDodgeModifier = 0.02M;
 
 
 

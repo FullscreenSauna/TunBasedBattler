@@ -10,8 +10,6 @@ namespace TurnBasedBattler.Controllers
     {
         private readonly HeroService heroService;
         private readonly HeroViewModel heroViewModel;
-
-        //TODO add servise
         public HeroController(HeroService heroService, HeroViewModel heroViewModel)
         {
             this.heroService = heroService;
