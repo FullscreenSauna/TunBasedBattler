@@ -4,6 +4,7 @@ using System;
 using System.Security.Cryptography.X509Certificates;
 using TurnBasedBattler.Controllers;
 using TurnBasedBattler.Models;
+using TurnBasedBattler.Models.DTOs;
 using TurnBasedBattler.Services;
 
 namespace TurnBasedBattler
@@ -12,19 +13,24 @@ namespace TurnBasedBattler
     {
         static void Main(string[] args)
         {
-            //service.Create-- - Testing
-            /////////  string name = Console.ReadLine();
-            // string type = Console.ReadLine();
+            ////  //service.Create-- - Testing
+            //string name = Console.ReadLine();
+            //string type = Console.ReadLine();
 
-            ///////// PlayerViewModel pl = new PlayerViewModel();
-            ////////pl.Username = name;
-            ////////tunbasedbattlerContext dbContext = new tunbasedbattlerContext();
-            ////////PlayerService ps = new PlayerService(dbContext);
-            ////////ps.CreatePlayer(pl);
-            // HeroService hs = new HeroService(dbContext);
+            //  tunbasedbattlerContext dbContext = new tunbasedbattlerContext();
+            //HeroService hs = new HeroService(dbContext);
+            //HeroController hc = new HeroController(hs);
+            //HeroViewModel hvm = new HeroViewModel();
+            //  hvm.Name = name;
+            // hvm.Type = type;
+            // hvm.PlayerId = 1;
 
-            //  hs.CreateHero(name, type);
-            //TODO UnitTests!!!
+            // hc.CreateHero(hvm);
+            ////  ///////// PlayerViewModel pl = new PlayerViewModel();
+            ////  ////////pl.Username = name;
+            ////  ///PlayerService ps = new PlayerService(dbContext);
+            ////  ////////ps.CreatePlayer(pl);
+            ////  //TODO UnitTests!!!
         }
     }
 }

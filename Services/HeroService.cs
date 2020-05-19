@@ -21,11 +21,20 @@ namespace TurnBasedBattler.Services
 
         public void CreateHero(HeroViewModel hero)
         {
-            Hero newHero = HeroWithType(hero.Name, hero.Type);
-            newHero.PlayerId = hero.PlayerId;
+            try
+            {
+                Hero newHero = HeroWithType(hero.Name, hero.Type);
+                newHero.PlayerId = hero.PlayerId;
 
-            this.dbContext.Heroes.Add(newHero);
-            this.dbContext.SaveChanges();
+                this.dbContext.Heroes.Add(newHero);
+                this.dbContext.SaveChanges();
+
+            }
+            catch (ArgumentException ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
         }
 
 
@@ -41,41 +50,35 @@ namespace TurnBasedBattler.Services
 
         private Hero HeroWithType(string name, string type)
         {
-            try
-            {
-                Hero hero = new Hero();
-                if (type == "Brute")
-                {
-                    hero = new Brute(name);
-                    //Brute brute = new Brute();
-                    //hero = brute.GetDefaultValues(name);
-                }
-                else if (type == "Ranger")
-                {
-                    hero = new Ranger(name);
-                }
-                else if (type == "Paladin")
-                {
-                    hero = new Paladin(name);
-                }
-                else if (type == "Wizzard")
-                {
-                    hero = new Wizzard(name);
-                }
-                else
-                {
-                    throw new ArgumentNullException("The hero type was not correct");
-                }
 
-                return hero;
 
-            }
-            catch (ArgumentNullException incorrectHeroName)
+            Hero hero = new Hero();
+            if (type == "Brute")
             {
-                //FixThis
-                throw incorrectHeroName;
+                hero = new Brute(name);
+                //Brute brute = new Brute();
+                //hero = brute.GetDefaultValues(name);
             }
+            else if (type == "Ranger")
+            {
+                hero = new Ranger(name);
+            }
+            else if (type == "Paladin")
+            {
+                hero = new Paladin(name);
+            }
+            else if (type == "Wizzard")
+            {
+                hero = new Wizzard(name);
+            }
+            else
+            {
+                throw new ArgumentException("The hero type was not correct");
+            }
+
+            return hero;
+
         }
-    }
 
+    }
 }

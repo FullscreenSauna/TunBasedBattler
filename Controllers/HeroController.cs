@@ -10,10 +10,9 @@ namespace TurnBasedBattler.Controllers
     {
         private readonly HeroService heroService;
         private readonly HeroViewModel heroViewModel;
-        public HeroController(HeroService heroService, HeroViewModel heroViewModel)
+        public HeroController(HeroService heroService)
         {
-            this.heroService = heroService;
-            this.heroViewModel = heroViewModel;
+            this.heroService =  heroService;
         }
 
         public void CreateHero(HeroViewModel newHero)
