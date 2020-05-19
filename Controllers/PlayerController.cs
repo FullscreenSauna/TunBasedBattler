@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TurnBasedBattler.Models.DTOs;
 using TurnBasedBattler.Services;
 using TurnBasedBattler.Views;
 
@@ -16,6 +17,11 @@ namespace TurnBasedBattler.Controllers
         {
             this.playerService = playerService;
             this.playerView = playerView;
+        }
+
+        public void CreatePlayer(PlayerViewModel player)
+        {
+            playerService.CreatePlayer(player);
         }
 
         public void DisplayStats(int id)

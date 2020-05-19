@@ -7,7 +7,9 @@ namespace TurnBasedBattler.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Class { get; set; }
+
+        //tf
+        //public string Class { get; set; }
         public int Hp { get; set; }
         public int Attack { get; set; }
         public int Defence { get; set; }
@@ -17,6 +19,10 @@ namespace TurnBasedBattler.Models
 
         public virtual Player Player { get; set; }
 
+
+        public Hero()
+        {
+        }
         protected Hero(string name, int attack, int defence, int magic, decimal dodge, int hp)
         {
             Name = name;

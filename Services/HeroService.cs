@@ -19,48 +19,63 @@ namespace TurnBasedBattler.Services
             this.dbContext = dbContext;
         }
 
-        public void CreateHero(string name, string type)
+        public void CreateHero(HeroViewModel hero)
         {
-
-            Hero newHero = HeroWithType(name, type);
-
+            Hero newHero = HeroWithType(hero.Name, hero.Type);
+            newHero.PlayerId = hero.PlayerId;
 
             this.dbContext.Heroes.Add(newHero);
             this.dbContext.SaveChanges();
         }
 
 
-        private Hero HeroWithType(string name, string type)
+        public void DeleteHero(HeroViewModel deadHero)
         {
-            Hero hero = null;
-            if (type == "Brute")
-            {
-                hero = new Brute(name);
-            }
-            else if (type == "Ranger")
-            {
-                hero = new Ranger(name);
-            }
-            else if (type == "Paladin")
-            {
-                hero = new Paladin(name);
-            }
-            else if (type == "Wizzard")
-            {
-                hero = new Wizzard(name);
-            }
-            else
-            {
-                throw new ArgumentException("The hero type was not correct");
-            }
-            return hero;
+            Hero heroToDelete = this.dbContext
+                .Heroes
+                .FirstOrDefault(h => h.Name == deadHero.Name);
+
+            this.dbContext.Heroes.Remove(heroToDelete);
+            this.dbContext.SaveChanges();
         }
 
-        //public void DeleteHero(HeroViewModel deadHero)
-        //{
-        //    this.dbContext.Heroes.Remove(deadHero);
-        //    this.dbContext.SaveChanges();
-        //}
+        private Hero HeroWithType(string name, string type)
+        {
+            try
+            {
+                Hero hero = new Hero();
+                if (type == "Brute")
+                {
+                    hero = new Brute(name);
+                    //Brute brute = new Brute();
+                    //hero = brute.GetDefaultValues(name);
+                }
+                else if (type == "Ranger")
+                {
+                    hero = new Ranger(name);
+                }
+                else if (type == "Paladin")
+                {
+                    hero = new Paladin(name);
+                }
+                else if (type == "Wizzard")
+                {
+                    hero = new Wizzard(name);
+                }
+                else
+                {
+                    throw new ArgumentNullException("The hero type was not correct");
+                }
+
+                return hero;
+
+            }
+            catch (ArgumentNullException incorrectHeroName)
+            {
+                //FixThis
+                throw incorrectHeroName;
+            }
+        }
     }
 
 }

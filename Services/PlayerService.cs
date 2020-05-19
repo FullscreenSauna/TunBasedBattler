@@ -17,6 +17,16 @@ namespace TurnBasedBattler.Services
             this.dbContext = dbContext;
         }
 
+        public void CreatePlayer(PlayerViewModel player )
+        {
+            Player newPlayer = new Player();
+
+            newPlayer.Username = player.Username;
+
+            dbContext.Players.Add(newPlayer);
+            dbContext.SaveChanges();
+        }
+
         public PlayerViewModel GetPlayerById(int id)
         {
             var dictionary = new Dictionary<PlayerViewModel, List<Hero>>();

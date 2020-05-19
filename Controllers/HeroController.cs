@@ -16,9 +16,9 @@ namespace TurnBasedBattler.Controllers
             this.heroViewModel = heroViewModel;
         }
 
-        public void Create(string name, string type)
+        public void CreateHero(HeroViewModel newHero)
         {
-            heroService.CreateHero(name, type);
+            heroService.CreateHero(newHero);
         }
 
 

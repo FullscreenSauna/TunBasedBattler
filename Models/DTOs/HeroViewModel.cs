@@ -10,7 +10,7 @@ namespace TurnBasedBattler.Models.DTOs
         { }
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Class { get; set; }
+        public string Type { get; set; }
         public int Hp { get; set; }
         public int Attack { get; set; }
         public int Defence { get; set; }

@@ -12,13 +12,18 @@ namespace TurnBasedBattler
     {
         static void Main(string[] args)
         {
-            //service.Create---Testing
-            //string name = Console.ReadLine();
-            //string type = Console.ReadLine();
+            //service.Create-- - Testing
+            /////////  string name = Console.ReadLine();
+            // string type = Console.ReadLine();
 
-            //tunbasedbattlerContext dbContext = new tunbasedbattlerContext();
-            //HeroService hs = new HeroService(dbContext);
-            //hs.CreateHero(name, type);
+            ///////// PlayerViewModel pl = new PlayerViewModel();
+            ////////pl.Username = name;
+            ////////tunbasedbattlerContext dbContext = new tunbasedbattlerContext();
+            ////////PlayerService ps = new PlayerService(dbContext);
+            ////////ps.CreatePlayer(pl);
+            // HeroService hs = new HeroService(dbContext);
+
+            //  hs.CreateHero(name, type);
             //TODO UnitTests!!!
         }
     }

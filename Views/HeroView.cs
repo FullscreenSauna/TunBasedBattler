@@ -6,10 +6,15 @@ namespace TurnBasedBattler.Views
 {
     class HeroView
     {
-        public int Id { get; set; }
+
         public string Name { get; set; }
-        public string Class { get; set; }
+        public string Type { get; set; }
 
         public int PlayerId { get; set; }
+
+        public HeroView()
+        {
+
+        }
     }
 }
