@@ -9,10 +9,9 @@ namespace TurnBasedBattler.Controllers
     public class HeroController
     {
         private readonly HeroService heroService;
-        private readonly HeroViewModel heroViewModel;
         public HeroController(HeroService heroService)
         {
-            this.heroService =  heroService;
+            this.heroService = heroService;
         }
 
         public void CreateHero(HeroViewModel newHero)
@@ -20,6 +19,14 @@ namespace TurnBasedBattler.Controllers
             heroService.CreateHero(newHero);
         }
 
+        public string HeroStatus(HeroViewModel heroToFind)
+        {
+            return heroService.GetHeroStatus(heroToFind);
+        }
 
+        public void DeleteHero(HeroViewModel deadHero)
+        {
+            heroService.DeleteHero(deadHero);
+        }
     }
 }

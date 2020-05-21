@@ -28,7 +28,6 @@ namespace TurnBasedBattler.Services
 
                 this.dbContext.Heroes.Add(newHero);
                 this.dbContext.SaveChanges();
-
             }
             catch (ArgumentException ex)
             {
@@ -40,12 +39,38 @@ namespace TurnBasedBattler.Services
 
         public void DeleteHero(HeroViewModel deadHero)
         {
-            Hero heroToDelete = this.dbContext
-                .Heroes
-                .FirstOrDefault(h => h.Name == deadHero.Name);
+            try
+            {
+                Hero heroToDelete = GetHeroByName(deadHero);
 
-            this.dbContext.Heroes.Remove(heroToDelete);
-            this.dbContext.SaveChanges();
+                this.dbContext.Heroes.Remove(heroToDelete);
+                this.dbContext.SaveChanges();
+            }
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine($"Hero with name \"{deadHero.Name}\" does not exist");
+            }
+        }
+
+        public string GetHeroStatus(HeroViewModel hero)
+        {
+            HeroViewModel redultHero = ToHeroViewModel(GetHeroByName(hero));
+            if (redultHero.Hp == 0)
+            {
+                return $"Hero does not exist or is dead";
+            }
+            else
+            {
+                return redultHero.ToString();
+            }
+        }
+
+        public Hero GetHeroByName(HeroViewModel heroToFind)
+        {
+            Hero foundHero = this.dbContext
+                .Heroes
+                .FirstOrDefault(h => h.Name == heroToFind.Name);
+            return foundHero;
         }
 
         private Hero HeroWithType(string name, string type)
@@ -80,5 +105,23 @@ namespace TurnBasedBattler.Services
 
         }
 
+        private HeroViewModel ToHeroViewModel(Hero hero)
+        {
+            HeroViewModel heroToReturn = new HeroViewModel();
+            try
+            {
+                heroToReturn.Name = hero.Name;
+                heroToReturn.Hp = hero.Hp;
+                heroToReturn.Attack = hero.Attack;
+                heroToReturn.Defence = hero.Defence;
+                heroToReturn.Magic = hero.Magic;
+                heroToReturn.Dodge = hero.Dodge;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("");
+            }
+            return heroToReturn;
+        }
     }
 }
