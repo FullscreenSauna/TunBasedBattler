@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TurnBasedBattler.Models;
 using TurnBasedBattler.Models.DTOs;
 using TurnBasedBattler.Services;
 
@@ -9,9 +10,9 @@ namespace TurnBasedBattler.Controllers
     public class HeroController
     {
         private readonly HeroService heroService;
-        public HeroController(HeroService heroService)
+        public HeroController(tunbasedbattlerContext dbContext)
         {
-            this.heroService = heroService;
+            this.heroService = new HeroService(dbContext);
         }
 
         public void CreateHero(HeroViewModel newHero)

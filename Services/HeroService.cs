@@ -21,18 +21,25 @@ namespace TurnBasedBattler.Services
 
         public void CreateHero(HeroViewModel hero)
         {
-            try
+            if (GetHeroByName(hero).Hp == 0)
             {
-                Hero newHero = HeroWithType(hero.Name, hero.Type);
-                newHero.PlayerId = hero.PlayerId;
+                try
+                {
+                    Hero newHero = HeroWithType(hero.Name, hero.Type);
+                    newHero.PlayerId = hero.PlayerId;
 
-                this.dbContext.Heroes.Add(newHero);
-                this.dbContext.SaveChanges();
+                    this.dbContext.Heroes.Add(newHero);
+                    this.dbContext.SaveChanges();
+                }
+                catch (ArgumentException ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                }
             }
-            catch (ArgumentException ex)
+            else
             {
-
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"Hero with name {hero.Name} already exists");
             }
         }
 
@@ -54,14 +61,15 @@ namespace TurnBasedBattler.Services
 
         public string GetHeroStatus(HeroViewModel hero)
         {
-            HeroViewModel redultHero = ToHeroViewModel(GetHeroByName(hero));
-            if (redultHero.Hp == 0)
+            try
             {
-                return $"Hero does not exist or is dead";
-            }
-            else
-            {
+                HeroViewModel redultHero = ToHeroViewModel(GetHeroByName(hero));
                 return redultHero.ToString();
+            }
+            catch (ArgumentException ex)
+            {
+
+                return ex.Message;
             }
         }
 
@@ -107,21 +115,24 @@ namespace TurnBasedBattler.Services
 
         private HeroViewModel ToHeroViewModel(Hero hero)
         {
-            HeroViewModel heroToReturn = new HeroViewModel();
-            try
+            if (hero != null)
             {
+                HeroViewModel heroToReturn = new HeroViewModel();
                 heroToReturn.Name = hero.Name;
                 heroToReturn.Hp = hero.Hp;
                 heroToReturn.Attack = hero.Attack;
                 heroToReturn.Defence = hero.Defence;
                 heroToReturn.Magic = hero.Magic;
                 heroToReturn.Dodge = hero.Dodge;
+                return heroToReturn;
+
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("");
+                throw new ArgumentException("Hero does not exist or is dead");
             }
-            return heroToReturn;
+
+
         }
     }
 }

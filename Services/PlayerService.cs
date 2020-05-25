@@ -17,16 +17,40 @@ namespace TurnBasedBattler.Services
             this.dbContext = dbContext;
         }
 
-        public void CreatePlayer(PlayerViewModel player )
+        public void CreatePlayer(PlayerViewModel player)
         {
-            Player newPlayer = new Player();
+            try
+            {
+                Player newPlayer = new Player();
 
-            newPlayer.Username = player.Username;
+                newPlayer.Username = player.Username;
 
-            dbContext.Players.Add(newPlayer);
-            dbContext.SaveChanges();
+                dbContext.Players.Add(newPlayer);
+                dbContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine($"Player with name {player.Username} already exists");
+            }
         }
 
+        public PlayerViewModel GetPlayerByName(string name)
+        {
+
+            var dictionary = new Dictionary<PlayerViewModel, List<Hero>>();
+
+            var playerViewModel = new PlayerViewModel();
+            var player = this.dbContext
+                             .Players
+                             .Where(pl => pl.Username == name)
+                             .Include(h => h.Heroes)
+                             .FirstOrDefault();
+            playerViewModel.Id = player.Id;
+            playerViewModel.Username = player.Username;
+            playerViewModel.Heroes = player.Heroes;
+
+            return playerViewModel;
+        }
         public PlayerViewModel GetPlayerById(int id)
         {
             var dictionary = new Dictionary<PlayerViewModel, List<Hero>>();
@@ -44,6 +68,6 @@ namespace TurnBasedBattler.Services
             return playerViewModel;
         }
 
-        
+
     }
 }
