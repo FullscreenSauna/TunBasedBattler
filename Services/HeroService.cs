@@ -21,7 +21,7 @@ namespace TurnBasedBattler.Services
 
         public void CreateHero(HeroViewModel hero)
         {
-            if (GetHeroByName(hero).Hp == 0)
+            if (GetHeroByName(hero) == null)
             {
                 try
                 {
@@ -59,12 +59,19 @@ namespace TurnBasedBattler.Services
             }
         }
 
-        public string GetHeroStatus(HeroViewModel hero)
+        public string GetHeroStatus(HeroViewModel hero, int playerId)
         {
             try
             {
-                HeroViewModel redultHero = ToHeroViewModel(GetHeroByName(hero));
-                return redultHero.ToString();
+                HeroViewModel resultHero = ToHeroViewModel(GetHeroByName(hero));
+                if (resultHero.PlayerId == playerId)
+                {
+                    return resultHero.ToString();
+                }
+                else
+                {
+                    return $"You don`t have hero {hero.Name}";
+                }
             }
             catch (ArgumentException ex)
             {
@@ -106,7 +113,7 @@ namespace TurnBasedBattler.Services
             }
             else
             {
-                throw new ArgumentException("The hero type was not correct");
+                throw new ArgumentException("The type was not correct");
             }
 
             return hero;
@@ -124,6 +131,7 @@ namespace TurnBasedBattler.Services
                 heroToReturn.Defence = hero.Defence;
                 heroToReturn.Magic = hero.Magic;
                 heroToReturn.Dodge = hero.Dodge;
+                heroToReturn.PlayerId = hero.PlayerId;
                 return heroToReturn;
 
             }

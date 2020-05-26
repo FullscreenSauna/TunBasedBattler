@@ -8,12 +8,12 @@ namespace TurnBasedBattler.Models.DTOs
     {
         public PlayerViewModel()
         {
-            Heroes = new HashSet<Hero>();
+            Heroes = new List<HeroViewModel>();
         }
 
         public int Id { get; set; }
         public string Username { get; set; }
-
-        public virtual ICollection<Hero> Heroes { get; set; }
+        public List<HeroViewModel> Heroes { get; set; }
     }
 }
+

@@ -13,7 +13,7 @@ namespace TurnBasedBattler
     {
         static void Main(string[] args)
         {
-            StartUp st = new StartUp();
+            StartUp start = new StartUp();
             //service-- - testing
 
 

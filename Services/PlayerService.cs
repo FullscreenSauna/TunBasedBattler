@@ -36,21 +36,27 @@ namespace TurnBasedBattler.Services
 
         public PlayerViewModel GetPlayerByName(string name)
         {
-
+            //TODO FIX ----> See StartUp
             var dictionary = new Dictionary<PlayerViewModel, List<Hero>>();
-
             var playerViewModel = new PlayerViewModel();
             var player = this.dbContext
                              .Players
                              .Where(pl => pl.Username == name)
                              .Include(h => h.Heroes)
                              .FirstOrDefault();
-            playerViewModel.Id = player.Id;
-            playerViewModel.Username = player.Username;
-            playerViewModel.Heroes = player.Heroes;
-
+            if (player != null)
+            {
+                playerViewModel.Id = player.Id;
+                playerViewModel.Username = player.Username;
+                playerViewModel.Heroes = HeroCollectionToHeroViewModelCollection(player.Heroes);
+            }
+            else
+            {
+                throw new AggregateException($"Hero {name} does not exist");
+            }
             return playerViewModel;
         }
+
         public PlayerViewModel GetPlayerById(int id)
         {
             var dictionary = new Dictionary<PlayerViewModel, List<Hero>>();
@@ -63,11 +69,31 @@ namespace TurnBasedBattler.Services
                              .FirstOrDefault();
             playerViewModel.Id = player.Id;
             playerViewModel.Username = player.Username;
-            playerViewModel.Heroes = player.Heroes;
+            playerViewModel.Heroes = HeroCollectionToHeroViewModelCollection(player.Heroes);
 
             return playerViewModel;
         }
 
+
+        private List<HeroViewModel> HeroCollectionToHeroViewModelCollection(ICollection<Hero> heroes)
+        {
+            List<HeroViewModel> heroViewModels = new List<HeroViewModel>();
+            foreach (var hero in heroes)
+            {
+                HeroViewModel heroViewModel = new HeroViewModel();
+                heroViewModel.Id = hero.Id;
+                heroViewModel.Name = hero.Name;
+                heroViewModel.Hp = hero.Hp;
+                heroViewModel.Magic = hero.Magic;
+                heroViewModel.Attack = hero.Attack;
+                heroViewModel.Defence = hero.Defence;
+                heroViewModel.Dodge = hero.Dodge;
+                heroViewModel.PlayerId = hero.PlayerId;
+
+                heroViewModels.Add(heroViewModel);
+            }
+            return heroViewModels;
+        }
 
     }
 }

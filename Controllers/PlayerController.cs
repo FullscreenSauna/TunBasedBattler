@@ -17,7 +17,7 @@ namespace TurnBasedBattler.Controllers
         public PlayerController(tunbasedbattlerContext dbContext)
         {
             this.playerService = new PlayerService(dbContext);
-            this.playerView = new PlayerView(); //must take this from the constructor
+            this.playerView = new PlayerView();
         }
 
         public void CreatePlayer(PlayerViewModel player)
@@ -31,10 +31,10 @@ namespace TurnBasedBattler.Controllers
 
             playerView.DisplayPlayerAndHeroes(playerViewModel);
         }
+
         public PlayerViewModel GetPlayer(string name)
         {
             var playerViewModel = this.playerService.GetPlayerByName(name);
-
             return (playerViewModel);
         }
     }

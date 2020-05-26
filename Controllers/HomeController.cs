@@ -18,8 +18,8 @@ namespace TurnBasedBattler.Controllers
         private PlayerViewModel player;
         public HomeController(tunbasedbattlerContext dbContext)
         {
-            this.heroController = new HeroController(dbContext);
-            this.playerController = new PlayerController(dbContext);//player To playerView???
+            this.heroController = new HeroController(dbContext, player);
+            this.playerController = new PlayerController(dbContext);
             player = new PlayerViewModel();
             homeView = new HomeView();
         }
@@ -34,7 +34,7 @@ namespace TurnBasedBattler.Controllers
         {
             PlayerViewModel newPlayer = homeView.CreatePlayer();
             playerController.CreatePlayer(newPlayer);
-            player = newPlayer;
+            player = playerController.GetPlayer(newPlayer.Username);
         }
 
         public void CreateHero()
@@ -42,15 +42,22 @@ namespace TurnBasedBattler.Controllers
             HeroViewModel newHero = homeView.CreateHero();
             newHero.PlayerId = player.Id;
             heroController.CreateHero(newHero);
-            //player.Heroes.Add(newHero);
-            // list of HeroViewModels
+            player.Heroes.Add(newHero);
         }
 
-        //TODO Add Get hero and player status
+        public void GetPlayerStatus()
+        {
+            playerController.DisplayStats(player.Id);
+        }
+        public void GetHeroStatus()
+        {
+            heroController.HeroStatus(homeView.GetHeroStatus(), player.Id);
+        }
 
         public void Menu()
         {
             homeView.Menu();
         }
+
     }
 }

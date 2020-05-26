@@ -26,6 +26,7 @@ namespace TurnBasedBattler.Views
             Console.WriteLine("5.Status of hero");
             Console.WriteLine("6.Make battle");
             Console.WriteLine("7.");
+            Console.WriteLine("8.");
             Console.WriteLine("9.Exit");
         }
 
@@ -61,6 +62,15 @@ namespace TurnBasedBattler.Views
             return newHero;
         }
 
+        public HeroViewModel GetHeroStatus()
+        {
+            Console.WriteLine("Please enter the name of the hero: ");
+            string name = Console.ReadLine();
+            HeroViewModel newHero = new HeroViewModel();
+            newHero.Name = name;
+            return newHero;
+        }
+
         public void ShowHeroTypes()
         {
             Console.WriteLine("Hero types:");
@@ -69,6 +79,10 @@ namespace TurnBasedBattler.Views
             Console.WriteLine("Ranger");
             Console.WriteLine("Wizzard");
         }
+
+        public void WrongPlayerName(string name)
+        {
+            Console.WriteLine($"Player {name} does not exist");
+        }
     }
 }
-
