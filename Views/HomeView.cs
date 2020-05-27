@@ -71,6 +71,14 @@ namespace TurnBasedBattler.Views
             return newHero;
         }
 
+        public void Battle()
+        {
+            Console.WriteLine("Choose first hero: ");
+            string firstHeroName = Console.ReadLine();
+            Console.WriteLine("Choose second hero: ");
+            string secondHeroName = Console.ReadLine();
+            //???
+        }
         public void ShowHeroTypes()
         {
             Console.WriteLine("Hero types:");

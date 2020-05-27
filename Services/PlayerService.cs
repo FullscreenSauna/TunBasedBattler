@@ -36,7 +36,7 @@ namespace TurnBasedBattler.Services
 
         public PlayerViewModel GetPlayerByName(string name)
         {
-            //TODO FIX ----> See StartUp
+            //TODO FIX
             var dictionary = new Dictionary<PlayerViewModel, List<Hero>>();
             var playerViewModel = new PlayerViewModel();
             var player = this.dbContext
@@ -49,12 +49,13 @@ namespace TurnBasedBattler.Services
                 playerViewModel.Id = player.Id;
                 playerViewModel.Username = player.Username;
                 playerViewModel.Heroes = HeroCollectionToHeroViewModelCollection(player.Heroes);
+                return playerViewModel;
             }
             else
             {
-                throw new AggregateException($"Hero {name} does not exist");
+                return null;
+                throw new ArgumentException($"Hero {name} does not exist");
             }
-            return playerViewModel;
         }
 
         public PlayerViewModel GetPlayerById(int id)

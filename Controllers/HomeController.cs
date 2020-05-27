@@ -28,6 +28,11 @@ namespace TurnBasedBattler.Controllers
         {
             string name = homeView.GetPlayer();
             player = playerController.GetPlayer(name);
+            if (player == null)
+            {
+                homeView.WrongPlayerName(name);
+                homeView.StartMenu();
+            }
         }
 
         public void CreatePlayer()
