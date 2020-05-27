@@ -15,7 +15,7 @@ namespace TurnBasedBattler
             GameTitle();
             dbContext = new tunbasedbattlerContext();
             homeController = new HomeController(dbContext);
-            Run();
+            FirstRun();
         }
 
         public void GameTitle()
@@ -23,22 +23,39 @@ namespace TurnBasedBattler
             //Make it big
             Console.WriteLine("TurnBasedBattler");
         }
+
+        public void FirstRun()
+        {
+            ConsoleKeyInfo key = Console.ReadKey();
+            switch (key.Key)
+            {
+                case ConsoleKey.D1:
+                    if (true)
+                    {
+                        homeController.ConnectPlayer();
+
+                    }
+                    Run();
+                    break;
+                case ConsoleKey.D2:
+                    homeController.CreatePlayer();
+                    Run();
+                    break;
+                case ConsoleKey.D9:
+                    break;
+            }
+        }
+
         public void Run()
         {
+            homeController.Menu();
             ConsoleKeyInfo key = Console.ReadKey();
             while (key.Key != ConsoleKey.D9)
             {
+
                 Console.Clear();
                 switch (key.Key)
                 {
-                    case ConsoleKey.D1:
-                        homeController.GetPlayer();
-                        // cant handle exeption===if you write your name wrong
-                        break;
-                    case ConsoleKey.D2:
-                        homeController.CreatePlayer();
-                        //you can see and edit a Player if you try to create player with the same name???
-                        break;
                     case ConsoleKey.D3:
                         homeController.CreateHero();
                         break;
@@ -54,7 +71,6 @@ namespace TurnBasedBattler
                         break;
                     case ConsoleKey.D8:
                         break;
-
                 }
                 homeController.Menu();
                 key = Console.ReadKey();
@@ -63,3 +79,4 @@ namespace TurnBasedBattler
 
     }
 }
+

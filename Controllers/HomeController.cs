@@ -15,48 +15,42 @@ namespace TurnBasedBattler.Controllers
         private HeroController heroController;
         private PlayerController playerController;
         private readonly HomeView homeView;
-        private PlayerViewModel player;
+
         public HomeController(tunbasedbattlerContext dbContext)
         {
-            this.heroController = new HeroController(dbContext, player);
+            this.heroController = new HeroController(dbContext);
             this.playerController = new PlayerController(dbContext);
-            player = new PlayerViewModel();
             homeView = new HomeView();
         }
 
-        public void GetPlayer()
+        public void ConnectPlayer()
         {
-            string name = homeView.GetPlayer();
-            player = playerController.GetPlayer(name);
-            if (player == null)
-            {
-                homeView.WrongPlayerName(name);
-                homeView.StartMenu();
-            }
+            string name = homeView.GetPlayerName();
+            playerController.ConnectPlayer(name);
         }
 
         public void CreatePlayer()
         {
-            PlayerViewModel newPlayer = homeView.CreatePlayer();
-            playerController.CreatePlayer(newPlayer);
-            player = playerController.GetPlayer(newPlayer.Username);
+            string username = homeView.CreatePlayer();
+            playerController.CreatePlayer(username);
         }
 
         public void CreateHero()
         {
-            HeroViewModel newHero = homeView.CreateHero();
-            newHero.PlayerId = player.Id;
-            heroController.CreateHero(newHero);
-            player.Heroes.Add(newHero);
+            List<string> values = homeView.GetNameAndType();
+            string name = values[0];
+            string type = values[1];
+            int id = playerController.PlayerId;
+            heroController.CreateHero(name, type, id);
         }
 
         public void GetPlayerStatus()
         {
-            playerController.DisplayStats(player.Id);
+            playerController.DisplayStats(playerController.PlayerId);
         }
         public void GetHeroStatus()
         {
-            heroController.HeroStatus(homeView.GetHeroStatus(), player.Id);
+            heroController.HeroStatus(homeView.GetHeroStatus(), playerController.PlayerId);
         }
 
         public void Menu()

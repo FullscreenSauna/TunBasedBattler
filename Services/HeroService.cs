@@ -19,36 +19,36 @@ namespace TurnBasedBattler.Services
             this.dbContext = dbContext;
         }
 
-        public void CreateHero(HeroViewModel hero)
+        public void CreateHero(string name, string type, int id)
         {
-            if (GetHeroByName(hero) == null)
+            if (GetHeroByName(name) == null)
             {
                 try
                 {
-                    Hero newHero = HeroWithType(hero.Name, hero.Type);
-                    newHero.PlayerId = hero.PlayerId;
+                    Hero newHero = HeroWithType(name, type);
+                    newHero.PlayerId = id;
 
                     this.dbContext.Heroes.Add(newHero);
                     this.dbContext.SaveChanges();
                 }
                 catch (ArgumentException ex)
                 {
-
                     Console.WriteLine(ex.Message);
                 }
             }
             else
             {
-                Console.WriteLine($"Hero with name {hero.Name} already exists");
+                Console.WriteLine($"Hero with name {name} already exists");
             }
         }
 
 
         public void DeleteHero(HeroViewModel deadHero)
         {
+
             try
             {
-                Hero heroToDelete = GetHeroByName(deadHero);
+                Hero heroToDelete = GetHeroByName(deadHero.Name);
 
                 this.dbContext.Heroes.Remove(heroToDelete);
                 this.dbContext.SaveChanges();
@@ -59,39 +59,36 @@ namespace TurnBasedBattler.Services
             }
         }
 
-        public string GetHeroStatus(HeroViewModel hero, int playerId)
+        public string GetHeroStatus(string name, int playerId)
         {
             try
             {
-                HeroViewModel resultHero = ToHeroViewModel(GetHeroByName(hero));
+                HeroViewModel resultHero = ToHeroViewModel(GetHeroByName(name));
                 if (resultHero.PlayerId == playerId)
                 {
                     return resultHero.ToString();
                 }
                 else
                 {
-                    return $"You don`t have hero {hero.Name}";
+                    return $"You don`t have hero {name}";
                 }
             }
             catch (ArgumentException ex)
             {
-
                 return ex.Message;
             }
         }
 
-        public Hero GetHeroByName(HeroViewModel heroToFind)
+        public Hero GetHeroByName(string name)
         {
             Hero foundHero = this.dbContext
                 .Heroes
-                .FirstOrDefault(h => h.Name == heroToFind.Name);
+                .FirstOrDefault(h => h.Name == name);
             return foundHero;
         }
 
         private Hero HeroWithType(string name, string type)
         {
-
-
             Hero hero = new Hero();
             if (type == "Brute")
             {

@@ -12,20 +12,20 @@ namespace TurnBasedBattler.Controllers
     {
         private readonly HeroService heroService;
         private HeroView heroView;
-        public HeroController(tunbasedbattlerContext dbContext, PlayerViewModel player)
+        public HeroController(tunbasedbattlerContext dbContext)
         {
             this.heroService = new HeroService(dbContext);
             heroView = new HeroView();
         }
 
-        public void CreateHero(HeroViewModel newHero)
+        public void CreateHero(string name, string type, int id)
         {
-            heroService.CreateHero(newHero);
+            heroService.CreateHero(name, type, id);
         }
 
-        public void HeroStatus(HeroViewModel heroToFind, int playerId)
+        public void HeroStatus(string name, int playerId)
         {
-            heroView.HeroStatus(heroService.GetHeroStatus(heroToFind, playerId));
+            heroView.HeroStatus(heroService.GetHeroStatus(name, playerId));
         }
 
         public void DeleteHero(HeroViewModel deadHero)

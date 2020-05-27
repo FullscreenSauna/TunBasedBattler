@@ -30,45 +30,38 @@ namespace TurnBasedBattler.Views
             Console.WriteLine("9.Exit");
         }
 
-        public string GetPlayer()
+        public string GetPlayerName()
         {
             Console.WriteLine("Please enter username: ");
             string username = Console.ReadLine();
             return username;
         }
 
-        public PlayerViewModel CreatePlayer()
+        public string CreatePlayer()
         {
             Console.WriteLine("Please enter username: ");
-            string userName = Console.ReadLine();
-            //ToDo password??
-            //Console.WriteLine("Please enter password: ");
-            //string password = Console.ReadLine();
-            PlayerViewModel newPlayer = new PlayerViewModel();
-            newPlayer.Username = userName;
-            return newPlayer;
+            string username = Console.ReadLine();
+
+            return username;
         }
 
-        public HeroViewModel CreateHero()
+        public List<string> GetNameAndType()
         {
+            List<string> values = new List<string>();
             Console.WriteLine("Please enter a name for your new hero: ");
-            string name = Console.ReadLine();
+            values.Add(Console.ReadLine());
             ShowHeroTypes();
             Console.WriteLine("Please choose the type of your hero: ");
-            string type = Console.ReadLine();
-            HeroViewModel newHero = new HeroViewModel();
-            newHero.Name = name;
-            newHero.Type = type;
-            return newHero;
+            values.Add(Console.ReadLine());
+
+            return values;
         }
 
-        public HeroViewModel GetHeroStatus()
+        public string GetHeroStatus()
         {
             Console.WriteLine("Please enter the name of the hero: ");
             string name = Console.ReadLine();
-            HeroViewModel newHero = new HeroViewModel();
-            newHero.Name = name;
-            return newHero;
+            return name;
         }
 
         public void Battle()
@@ -88,9 +81,6 @@ namespace TurnBasedBattler.Views
             Console.WriteLine("Wizzard");
         }
 
-        public void WrongPlayerName(string name)
-        {
-            Console.WriteLine($"Player {name} does not exist");
-        }
+
     }
 }

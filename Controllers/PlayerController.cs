@@ -12,17 +12,31 @@ namespace TurnBasedBattler.Controllers
     {
         private readonly PlayerService playerService;
         private readonly PlayerView playerView;
-
+        private PlayerViewModel player;
 
         public PlayerController(tunbasedbattlerContext dbContext)
         {
-            this.playerService = new PlayerService(dbContext);
-            this.playerView = new PlayerView();
+            playerService = new PlayerService(dbContext);
+            playerView = new PlayerView();
+            player = new PlayerViewModel();
         }
 
-        public void CreatePlayer(PlayerViewModel player)
+        public int PlayerId
         {
-            playerService.CreatePlayer(player);
+            get { return player.Id; }
+            private set {; }
+        }
+        public void CreatePlayer(string username)
+        {
+            try
+            {
+                playerService.CreatePlayer(username);
+            }
+            catch (ArgumentException ex)
+            {
+                playerView.DisplayExceptionMessage(ex.Message);
+            }
+            player = playerService.GetPlayerByName(username);
         }
 
         public void DisplayStats(int id)
@@ -32,10 +46,17 @@ namespace TurnBasedBattler.Controllers
             playerView.DisplayPlayerAndHeroes(playerViewModel);
         }
 
-        public PlayerViewModel GetPlayer(string name)
+        public void ConnectPlayer(string name)
         {
-            var playerViewModel = this.playerService.GetPlayerByName(name);
-            return (playerViewModel);
+            try
+            {
+                var playerViewModel = this.playerService.GetPlayerByName(name);
+                player = playerViewModel;
+            }
+            catch (ArgumentException ex)
+            {
+                playerView.DisplayExceptionMessage(ex.Message);
+            }
         }
     }
 }

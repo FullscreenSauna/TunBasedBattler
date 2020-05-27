@@ -22,6 +22,11 @@ namespace TurnBasedBattler.Views
 
             Console.WriteLine(sb.ToString().Trim());
         }
+
+        public void DisplayExceptionMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
     }
 }
 
