@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TunBasedBattler\\TurnBasedBattler.csproj": {}
+    "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TunBasedBattler\\TurnBasedBattler.csproj": {
+    "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TunBasedBattler\\TurnBasedBattler.csproj",
+        "projectUniqueName": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj",
         "projectName": "TurnBasedBattler",
-        "projectPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TunBasedBattler\\TurnBasedBattler.csproj",
+        "projectPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj",
         "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TunBasedBattler\\obj\\",
+        "outputPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -40,6 +40,28 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.20, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -50,7 +72,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
