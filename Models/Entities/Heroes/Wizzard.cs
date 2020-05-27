@@ -8,14 +8,14 @@ namespace TurnBasedBattler.Models.Entities.Heroes
     {
         private const int InitialWizzardHp = 75;
         private const int WizzardAttackModifier = 1;
-        private const int WizzardDeffenceModifier = -2;
+        private const int WizzardDefenceModifier = -2;
         private const int WizzardMagicModifier = 8;
-        private const double WizzardDodgeModifier = 0.02;
+        private const decimal WizzardDodgeModifier = 0.02M;
 
 
 
         public Wizzard(string name)
-            : base(name, WizzardAttackModifier, WizzardDeffenceModifier, WizzardMagicModifier, WizzardDodgeModifier, InitialWizzardHp)
+            : base(name, WizzardAttackModifier, WizzardDefenceModifier, WizzardMagicModifier, WizzardDodgeModifier, InitialWizzardHp)
         {
         }
     }

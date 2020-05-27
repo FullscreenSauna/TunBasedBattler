@@ -12,7 +12,6 @@ namespace TurnBasedBattler.Models
 
         public int Id { get; set; }
         public string Username { get; set; }
-
         public virtual ICollection<Hero> Heroes { get; set; }
     }
 }

@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "D:\\IT\\TunBasedBattler\\TurnBasedBattler.csproj": {}
+  },
+  "projects": {
+    "D:\\IT\\TunBasedBattler\\TurnBasedBattler.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\IT\\TunBasedBattler\\TurnBasedBattler.csproj",
+        "projectName": "TurnBasedBattler",
+        "projectPath": "D:\\IT\\TunBasedBattler\\TurnBasedBattler.csproj",
+        "packagesPath": "C:\\Users\\АлександърДжеков\\.nuget\\packages\\",
+        "outputPath": "D:\\IT\\TunBasedBattler\\obj\\",
+=======
     "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj": {}
   },
   "projects": {
@@ -12,12 +25,13 @@
         "projectPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj",
         "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\obj\\",
+>>>>>>> refs/remotes/origin/master
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\АлександърДжеков\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,19 +57,31 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
+<<<<<<< HEAD
+              "version": "[3.1.4, )"
+=======
               "version": "[3.1.3, )"
+>>>>>>> refs/remotes/origin/master
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
+<<<<<<< HEAD
+              "version": "[3.1.4, )"
+=======
               "version": "[3.1.3, )"
+>>>>>>> refs/remotes/origin/master
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
+<<<<<<< HEAD
+              "version": "[3.1.4, )"
+=======
               "version": "[3.1.3, )"
+>>>>>>> refs/remotes/origin/master
             },
             "MySql.Data.EntityFrameworkCore": {
               "target": "Package",
@@ -77,7 +103,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+>>>>>>> refs/remotes/origin/master
         }
       }
     }

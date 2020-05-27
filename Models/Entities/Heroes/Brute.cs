@@ -8,13 +8,13 @@ namespace TurnBasedBattler.Models.Entities.Heroes
     {
         private const int InitialBruteHp = 150;
         private const int BruteAttackModifier = 5;
-        private const int BruteDeffenceModifier = 2;
+        private const int BruteDefenceModifier = 2;
         private const int BruteMagicModifier = 1;
-        private const double BruteDodgeModifier = 0.02;
+        private const decimal BruteDodgeModifier = 0.02M;
 
 
         public Brute(string name)
-            : base(name, BruteAttackModifier, BruteDeffenceModifier, BruteMagicModifier, BruteDodgeModifier, InitialBruteHp)
+            : base(name, BruteAttackModifier, BruteDefenceModifier, BruteMagicModifier, BruteDodgeModifier, InitialBruteHp)
         {
         }
     }

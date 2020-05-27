@@ -8,12 +8,12 @@ namespace TurnBasedBattler.Models.Entities.Heroes
     {
         private const int InitialRangerHp = 100;
         private const int RangerAttackModifier = 3;
-        private const int RangerDeffenceModifier = 1;
+        private const int RangerDefenceModifier = 1;
         private const int RangerMagicModifier = 2;
-        private const double RangerDodgeModifier = 0.1;
+        private const decimal RangerDodgeModifier = 0.1M;
 
         public Ranger(string name)
-            : base(name, RangerAttackModifier, RangerDeffenceModifier, RangerMagicModifier, RangerDodgeModifier, InitialRangerHp)
+            : base(name, RangerAttackModifier, RangerDefenceModifier, RangerMagicModifier, RangerDodgeModifier, InitialRangerHp)
         {
         }
 

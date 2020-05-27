@@ -49,12 +49,6 @@ namespace TurnBasedBattler.Models
                     .HasColumnName("attack")
                     .HasColumnType("int(11)");
 
-                entity.Property(e => e.Class)
-                    .IsRequired()
-                    .HasColumnName("class")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Defence)
                     .HasColumnName("defence")
                     .HasColumnType("int(11)");

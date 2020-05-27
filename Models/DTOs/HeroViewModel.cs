@@ -10,7 +10,7 @@ namespace TurnBasedBattler.Models.DTOs
         { }
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Class { get; set; }
+        public string Type { get; set; }
         public int Hp { get; set; }
         public int Attack { get; set; }
         public int Defence { get; set; }
@@ -20,8 +20,7 @@ namespace TurnBasedBattler.Models.DTOs
 
         public virtual Player Player { get; set; }
 
-<<<<<<< HEAD
-=======
+
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -32,6 +31,5 @@ namespace TurnBasedBattler.Models.DTOs
 
             return sb.ToString();
         }
->>>>>>> b56549389383f001d86d8b24c246d4b47e275570
     }
 }
