@@ -7,54 +7,54 @@ namespace TurnBasedBattler.Views
 {
     public class HomeView
     {
+        private readonly PlayerView playerView;
+        private readonly HeroView heroView;
 
         public HomeView()
         {
             StartMenu();
+            playerView = new PlayerView();
+            heroView = new HeroView();
         }
         public void StartMenu()
         {
-            Console.WriteLine("1.I have account");
-            Console.WriteLine("2.Create account");
+            Console.WriteLine("1.I have a player");
+            Console.WriteLine("2.Create player");
             Console.WriteLine("9.Exit");
         }
 
         public void Menu()
         {
             Console.WriteLine("3.Create hero");
-            Console.WriteLine("4.My status");
-            Console.WriteLine("5.Status of hero");
-            Console.WriteLine("6.Make battle");
-            Console.WriteLine("7.");
-            Console.WriteLine("8.");
+            Console.WriteLine("4.Player status");
+            Console.WriteLine("5.Hero status");
+            Console.WriteLine("6.Battle");
+            //Console.WriteLine("7.");
+            Console.WriteLine("8.Go to the start menu");
             Console.WriteLine("9.Exit");
         }
 
         public string GetPlayerName()
         {
-            Console.WriteLine("Please enter username: ");
-            string username = Console.ReadLine();
-            return username;
+            return playerView.GetPlayerName();
         }
 
         public string CreatePlayer()
         {
-            Console.WriteLine("Please enter username: ");
-            string username = Console.ReadLine();
-
-            return username;
+            return playerView.CreatePlayer();
         }
 
-        public List<string> GetNameAndType()
+        public List<string> CreateHero()
         {
-            List<string> values = new List<string>();
-            Console.WriteLine("Please enter a name for your new hero: ");
-            values.Add(Console.ReadLine());
-            ShowHeroTypes();
-            Console.WriteLine("Please choose the type of your hero: ");
-            values.Add(Console.ReadLine());
+            //List<string> values = new List<string>();
+            //Console.WriteLine("Please enter a name for your new hero: ");
+            //values.Add(Console.ReadLine());
+            //ShowHeroTypes();
+            //Console.WriteLine("Please choose the type of your hero: ");
+            //values.Add(Console.ReadLine());
 
-            return values;
+            //return values;
+            return heroView.CreateHero();
         }
 
         public void DisplayExceptionMessage(string message)
@@ -64,9 +64,10 @@ namespace TurnBasedBattler.Views
 
         public string GetHeroStatus()
         {
-            Console.WriteLine("Please enter the name of the hero: ");
-            string name = Console.ReadLine();
-            return name;
+            //Console.WriteLine("Please enter the name of the hero: ");
+            //string name = Console.ReadLine();
+            //return name;
+            return heroView.GetHeroStatus();
         }
 
         public void Battle()
@@ -77,14 +78,7 @@ namespace TurnBasedBattler.Views
             string secondHeroName = Console.ReadLine();
             //???
         }
-        public void ShowHeroTypes()
-        {
-            Console.WriteLine("Hero types:");
-            Console.WriteLine("Brute");
-            Console.WriteLine("Paladin");
-            Console.WriteLine("Ranger");
-            Console.WriteLine("Wizzard");
-        }
+     
 
 
     }

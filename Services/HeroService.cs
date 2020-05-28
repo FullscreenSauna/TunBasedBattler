@@ -79,7 +79,7 @@ namespace TurnBasedBattler.Services
             }
         }
 
-        public Hero GetHeroByName(string name)
+        private Hero GetHeroByName(string name)
         {
             Hero foundHero = this.dbContext
                 .Heroes

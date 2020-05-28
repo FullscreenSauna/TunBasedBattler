@@ -13,7 +13,7 @@ namespace TurnBasedBattler.Views
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(playerViewModel.Username + ":");
+            sb.AppendLine("name: " + playerViewModel.Username + ":");
 
             foreach (var hero in playerViewModel.Heroes)
             {
@@ -26,6 +26,21 @@ namespace TurnBasedBattler.Views
         public void DisplayExceptionMessage(string message)
         {
             Console.WriteLine(message);
+        }
+
+        public string GetPlayerName()
+        {
+            Console.WriteLine("Please enter username: ");
+            string username = Console.ReadLine();
+            return username;
+        }
+
+        public string CreatePlayer()
+        {
+            Console.WriteLine("Please enter username: ");
+            string username = Console.ReadLine();
+
+            return username;
         }
     }
 }

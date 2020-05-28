@@ -37,7 +37,7 @@ namespace TurnBasedBattler.Controllers
 
         public void CreateHero()
         {
-            List<string> values = homeView.GetNameAndType();
+            List<string> values = homeView.CreateHero();
             string name = values[0];
             string type = values[1];
             int id = playerController.PlayerId;

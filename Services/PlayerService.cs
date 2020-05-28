@@ -19,7 +19,7 @@ namespace TurnBasedBattler.Services
 
         public void CreatePlayer(string username)
         {
-            if (!Exist(username))
+            if (!Exists(username))
             {
                 Player newPlayer = new Player();
 
@@ -36,7 +36,6 @@ namespace TurnBasedBattler.Services
 
         public PlayerViewModel GetPlayerByName(string name)
         {
-            //TODO FIX
             var dictionary = new Dictionary<PlayerViewModel, List<Hero>>();
             var playerViewModel = new PlayerViewModel();
             var player = this.dbContext
@@ -95,7 +94,7 @@ namespace TurnBasedBattler.Services
             return heroViewModels;
         }
 
-        public bool Exist(string name)
+        private bool Exists(string name)
         {
             Player player = dbContext.Players.Where(p => p.Username == name).FirstOrDefault();
             if (player == null)

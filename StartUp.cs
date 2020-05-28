@@ -18,18 +18,18 @@ namespace TurnBasedBattler
             FirstRun();
         }
 
-        public void GameTitle()
+        private void GameTitle()
         {
             //Make it big
             Console.WriteLine("TurnBasedBattler");
         }
 
-        public void GetStartMenu()
+        private void GetStartMenu()
         {
             homeController.StartMenu();
         }
 
-        public void FirstRun()
+        private void FirstRun()
         {
             ConsoleKeyInfo key = Console.ReadKey();
 
@@ -47,6 +47,7 @@ namespace TurnBasedBattler
                         Run();
                         break;
                     case ConsoleKey.D9:
+                        Environment.Exit(0);
                         break;
                 }
             }
@@ -58,11 +59,11 @@ namespace TurnBasedBattler
             }
         }
 
-        public void Run()
+        private void Run()
         {
             homeController.Menu();
             ConsoleKeyInfo key = Console.ReadKey();
-            while (key.Key != ConsoleKey.D9)
+            while (true)
             {
                 Console.Clear();
                 switch (key.Key)
@@ -80,7 +81,13 @@ namespace TurnBasedBattler
                         break;
                     case ConsoleKey.D7:
                         break;
+                    //return to the start menu
                     case ConsoleKey.D8:
+                        GetStartMenu();
+                        FirstRun();
+                        break;
+                    case ConsoleKey.D9:
+                        Environment.Exit(0);
                         break;
                 }
 
