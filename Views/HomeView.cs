@@ -28,7 +28,7 @@ namespace TurnBasedBattler.Views
             Console.WriteLine("3.Create hero");
             Console.WriteLine("4.Player status");
             Console.WriteLine("5.Hero status");
-            Console.WriteLine("6.Battle");
+            //Console.WriteLine("6.Battle");
             //Console.WriteLine("7.");
             Console.WriteLine("8.Go to the start menu");
             Console.WriteLine("9.Exit");
@@ -46,14 +46,6 @@ namespace TurnBasedBattler.Views
 
         public List<string> CreateHero()
         {
-            //List<string> values = new List<string>();
-            //Console.WriteLine("Please enter a name for your new hero: ");
-            //values.Add(Console.ReadLine());
-            //ShowHeroTypes();
-            //Console.WriteLine("Please choose the type of your hero: ");
-            //values.Add(Console.ReadLine());
-
-            //return values;
             return heroView.CreateHero();
         }
 
@@ -64,9 +56,6 @@ namespace TurnBasedBattler.Views
 
         public string GetHeroStatus()
         {
-            //Console.WriteLine("Please enter the name of the hero: ");
-            //string name = Console.ReadLine();
-            //return name;
             return heroView.GetHeroStatus();
         }
 
