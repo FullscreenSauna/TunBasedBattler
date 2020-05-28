@@ -67,5 +67,10 @@ namespace TurnBasedBattler.Controllers
                 playerView.DisplayExceptionMessage(ex.Message);
             }
         }
+
+        public void GetAllPlayerNames()
+        {
+            playerView.DisplayAllPlayerNames(playerService.GetAllPlayerNames());
+        }
     }
 }

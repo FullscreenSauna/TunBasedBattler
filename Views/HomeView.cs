@@ -19,6 +19,7 @@ namespace TurnBasedBattler.Views
         {
             Console.WriteLine("1.I have a player");
             Console.WriteLine("2.Create player");
+            Console.WriteLine("3.Display all hero names");
             Console.WriteLine("9.Exit");
         }
 

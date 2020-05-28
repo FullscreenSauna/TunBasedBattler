@@ -55,6 +55,10 @@ namespace TurnBasedBattler.Views
             Console.WriteLine($"Successfully deleted the player: {name}");
         }
 
+        public void DisplayAllPlayerNames(List<string> names)
+        {
+            Console.WriteLine(string.Join('\n', names));
+        }
     }
 }
 

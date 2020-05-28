@@ -73,6 +73,11 @@ namespace TurnBasedBattler.Services
 
         }
 
+        public List<string> GetAllPlayerNames()
+        {
+            return this.dbContext.Players.Select(p => p.Username).ToList();
+        }
+
         public PlayerViewModel GetPlayerById(int id)
         {
             var dictionary = new Dictionary<PlayerViewModel, List<Hero>>();

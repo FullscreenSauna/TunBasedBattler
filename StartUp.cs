@@ -45,6 +45,10 @@ namespace TurnBasedBattler
                     case ConsoleKey.D2:
                         homeController.CreatePlayer();
                         break;
+                    case ConsoleKey.D3:
+                        homeController.DisplayAllPlayerNames();
+                        GetStartMenu();
+                        break;
                     case ConsoleKey.D9:
                         Environment.Exit(0);
                         break;

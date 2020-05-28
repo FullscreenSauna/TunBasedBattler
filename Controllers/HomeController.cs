@@ -79,6 +79,9 @@ namespace TurnBasedBattler.Controllers
             homeView.StartMenu();
         }
 
-       
+        public void DisplayAllPlayerNames()
+        {
+            playerController.GetAllPlayerNames();
+        }
     }
 }
