@@ -15,7 +15,7 @@ namespace TurnBasedBattler
             GameTitle();
             dbContext = new tunbasedbattlerContext();
             homeController = new HomeController(dbContext);
-            FirstRun();
+            GetStartMenu();
         }
 
         private void GameTitle()
@@ -27,9 +27,10 @@ namespace TurnBasedBattler
         private void GetStartMenu()
         {
             homeController.StartMenu();
+            StartMenuFlow();
         }
 
-        private void FirstRun()
+        private void StartMenuFlow()
         {
             ConsoleKeyInfo key = Console.ReadKey();
 
@@ -40,11 +41,9 @@ namespace TurnBasedBattler
                 {
                     case ConsoleKey.D1:
                         homeController.ConnectPlayer();
-                        Run();
                         break;
                     case ConsoleKey.D2:
                         homeController.CreatePlayer();
-                        Run();
                         break;
                     case ConsoleKey.D9:
                         Environment.Exit(0);
@@ -55,11 +54,13 @@ namespace TurnBasedBattler
             {
                 homeController.DisplayExeptionMessage(ex.Message);
                 GetStartMenu();
-                FirstRun();
+                StartMenuFlow();
             }
+
+            MainMenuFlow();
         }
 
-        private void Run()
+        private void MainMenuFlow()
         {
             homeController.Menu();
             ConsoleKeyInfo key = Console.ReadKey();
@@ -68,23 +69,24 @@ namespace TurnBasedBattler
                 Console.Clear();
                 switch (key.Key)
                 {
-                    case ConsoleKey.D3:
+                    case ConsoleKey.D1:
                         homeController.CreateHero();
                         break;
-                    case ConsoleKey.D4:
+                    case ConsoleKey.D2:
                         homeController.GetPlayerStatus();
                         break;
-                    case ConsoleKey.D5:
+                    case ConsoleKey.D3:
                         homeController.GetHeroStatus();
                         break;
-                    case ConsoleKey.D6:
+                    case ConsoleKey.D4:
+                        homeController.DeleteHero();
                         break;
-                    case ConsoleKey.D7:
+                    case ConsoleKey.D5:
+                        homeController.DeletePlayer();
+                        GetStartMenu();
                         break;
-                    //return to the start menu
                     case ConsoleKey.D8:
                         GetStartMenu();
-                        FirstRun();
                         break;
                     case ConsoleKey.D9:
                         Environment.Exit(0);

@@ -6,11 +6,6 @@ namespace TurnBasedBattler.Views
 {
     class HeroView
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-
-        public int PlayerId { get; set; }
-
         public HeroView()
         { }
 
@@ -40,11 +35,21 @@ namespace TurnBasedBattler.Views
             Console.WriteLine("Wizzard");
         }
 
-        public string GetHeroStatus()
+        public string GetHeroName()
         {
             Console.WriteLine("Please enter the name of the hero: ");
             string name = Console.ReadLine();
             return name;
+        }
+
+        public void SuccessfulDeletion(string name)
+        {
+            Console.WriteLine($"Successfully deleted the hero: {name}");
+        }
+
+        public void DisplayExceptionMessage(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }

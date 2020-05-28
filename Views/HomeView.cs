@@ -12,7 +12,6 @@ namespace TurnBasedBattler.Views
 
         public HomeView()
         {
-            StartMenu();
             playerView = new PlayerView();
             heroView = new HeroView();
         }
@@ -25,12 +24,13 @@ namespace TurnBasedBattler.Views
 
         public void Menu()
         {
-            Console.WriteLine("3.Create hero");
-            Console.WriteLine("4.Player status");
-            Console.WriteLine("5.Hero status");
+            Console.WriteLine("1.Create hero");
+            Console.WriteLine("2.Player status");
+            Console.WriteLine("3.Hero status");
             //Console.WriteLine("6.Battle");
-            //Console.WriteLine("7.");
-            Console.WriteLine("8.Go to the start menu");
+            Console.WriteLine("4.Delete Hero");
+            Console.WriteLine("5.Delete Player");
+            Console.WriteLine("8.Return to start menu");
             Console.WriteLine("9.Exit");
         }
 
@@ -56,7 +56,7 @@ namespace TurnBasedBattler.Views
 
         public string GetHeroStatus()
         {
-            return heroView.GetHeroStatus();
+            return heroView.GetHeroName();
         }
 
         public void Battle()

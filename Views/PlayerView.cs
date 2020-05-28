@@ -42,6 +42,19 @@ namespace TurnBasedBattler.Views
 
             return username;
         }
+
+        public string DeletionWarning(string username)
+        {
+            Console.WriteLine($"You are about to delete {username} and all of their heroes");
+            Console.WriteLine("If you want to proceed type Yes");
+            return Console.ReadLine();
+        }
+
+        public void SuccessfulDeletion(string name)
+        {
+            Console.WriteLine($"Successfully deleted the player: {name}");
+        }
+
     }
 }
 

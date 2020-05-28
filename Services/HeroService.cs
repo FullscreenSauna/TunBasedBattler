@@ -42,22 +42,20 @@ namespace TurnBasedBattler.Services
             }
         }
 
-
-        public void DeleteHero(HeroViewModel deadHero)
+        public void DeleteHero(string name)
         {
-
             try
             {
-                Hero heroToDelete = GetHeroByName(deadHero.Name);
-
-                this.dbContext.Heroes.Remove(heroToDelete);
+                //Removes the Hero from the DB
+                this.dbContext.Heroes.Remove(dbContext.Heroes.FirstOrDefault(h=> h.Name == name)) ;
                 this.dbContext.SaveChanges();
             }
             catch (ArgumentNullException)
             {
-                Console.WriteLine($"Hero with name \"{deadHero.Name}\" does not exist");
+                throw new ArgumentException($"Hero with name {name} doesn't exist");
             }
         }
+
 
         public string GetHeroStatus(string name, int playerId)
         {

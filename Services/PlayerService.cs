@@ -56,6 +56,23 @@ namespace TurnBasedBattler.Services
             return playerViewModel;
         }
 
+        public void DeletePlayer(int id, string confirmation)
+        {
+            if (confirmation.ToLower() != "yes")
+            {
+                throw new ArgumentException("Failed to confirm the deletion process");
+            }
+
+            foreach (var hero in this.dbContext.Heroes)
+            {
+                this.dbContext.Heroes.Remove(hero);
+            }
+
+            this.dbContext.Players.Remove(dbContext.Players.FirstOrDefault(p => p.Id == id));
+            this.dbContext.SaveChanges();
+
+        }
+
         public PlayerViewModel GetPlayerById(int id)
         {
             var dictionary = new Dictionary<PlayerViewModel, List<Hero>>();

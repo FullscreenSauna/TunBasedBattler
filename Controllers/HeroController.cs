@@ -28,9 +28,18 @@ namespace TurnBasedBattler.Controllers
             heroView.HeroStatus(heroService.GetHeroStatus(name, playerId));
         }
 
-        public void DeleteHero(HeroViewModel deadHero)
+        public void DeleteHero()
         {
-            heroService.DeleteHero(deadHero);
+            string name = heroView.GetHeroName();
+            try
+            {
+                heroService.DeleteHero(name);
+                heroView.SuccessfulDeletion(name);
+            }
+            catch (ArgumentException ex)
+            {
+                heroView.DisplayExceptionMessage(ex.Message);
+            }
         }
     }
 }

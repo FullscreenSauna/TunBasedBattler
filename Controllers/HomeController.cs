@@ -49,6 +49,16 @@ namespace TurnBasedBattler.Controllers
             playerController.DisplayStats(playerController.PlayerId);
         }
 
+        public void DeleteHero()
+        {
+            heroController.DeleteHero();
+        }
+
+        public void DeletePlayer()
+        {
+            playerController.DeletePlayer();
+        }
+
         public void DisplayExeptionMessage(string message)
         {
             homeView.DisplayExceptionMessage(message);
@@ -68,5 +78,7 @@ namespace TurnBasedBattler.Controllers
         {
             homeView.StartMenu();
         }
+
+       
     }
 }

@@ -52,6 +52,20 @@ namespace TurnBasedBattler.Controllers
             player = playerViewModel;
         }
 
+        public void DeletePlayer()
+        {
+            string confirmation = playerView.DeletionWarning(player.Username);
 
+            try
+            {
+                playerService.DeletePlayer(player.Id, confirmation);
+                playerView.SuccessfulDeletion(player.Username);
+            }
+            catch (ArgumentException ex)
+            {
+
+                playerView.DisplayExceptionMessage(ex.Message);
+            }
+        }
     }
 }
