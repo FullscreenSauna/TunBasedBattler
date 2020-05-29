@@ -5,6 +5,7 @@ using TunBasedBattler.Models;
 using TunBasedBattler.Models.DTOs;
 using TunBasedBattler.Services;
 using TunBasedBattler.Views;
+using TurnBasedBattler.Views;
 
 namespace TunBasedBattler.Controllers
 {
@@ -12,12 +13,14 @@ namespace TunBasedBattler.Controllers
     {
         private readonly PlayerService playerService;
         private readonly PlayerView playerView;
+        private readonly BattleView battleView;
         private PlayerViewModel player;
 
         public PlayerController(tunbasedbattlerContext dbContext)
         {
             playerService = new PlayerService(dbContext);
             playerView = new PlayerView();
+            battleView = new BattleView();
             player = new PlayerViewModel();
         }
 
@@ -42,6 +45,8 @@ namespace TunBasedBattler.Controllers
         public void DisplayStats(int id)
         {
             var playerViewModel = this.playerService.GetPlayerById(id);
+
+
 
             playerView.DisplayPlayerAndHeroes(playerViewModel);
         }
@@ -71,6 +76,24 @@ namespace TunBasedBattler.Controllers
         public void GetAllPlayerNames()
         {
             playerView.DisplayAllPlayerNames(playerService.GetAllPlayerNames());
+        }
+
+        public void InitiateBattle()
+        {
+            var heroNames = battleView.GetParticipatingHeroes();
+
+            try
+            {
+                playerService.VerifyBattle(player, heroNames);
+                playerService.Battle(player, heroNames, battleView);
+
+            }
+            catch (ArgumentException ex)
+            {
+                playerView.DisplayExceptionMessage(ex.Message);
+            }
+
+
         }
     }
 }

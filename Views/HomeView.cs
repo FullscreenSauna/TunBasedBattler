@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TunBasedBattler.Models.DTOs;
+using TurnBasedBattler.Views;
 
 namespace TunBasedBattler.Views
 {
@@ -9,17 +10,19 @@ namespace TunBasedBattler.Views
     {
         private readonly PlayerView playerView;
         private readonly HeroView heroView;
+        private readonly BattleView battleView;
 
         public HomeView()
         {
             playerView = new PlayerView();
             heroView = new HeroView();
+            battleView = new BattleView();
         }
         public void StartMenu()
         {
             Console.WriteLine("1.I have a player");
             Console.WriteLine("2.Create player");
-            Console.WriteLine("3.Display all hero names");
+            Console.WriteLine("3.Display all player names");
             Console.WriteLine("9.Exit");
         }
 
@@ -60,13 +63,9 @@ namespace TunBasedBattler.Views
             return heroView.GetHeroName();
         }
 
-        public void Battle()
+        public void InitiateBattle()
         {
-            Console.WriteLine("Choose first hero: ");
-            string firstHeroName = Console.ReadLine();
-            Console.WriteLine("Choose second hero: ");
-            string secondHeroName = Console.ReadLine();
-            //???
+            battleView.GetParticipatingHeroes();
         }
      
 

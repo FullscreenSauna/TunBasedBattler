@@ -6,11 +6,16 @@ using System.Linq;
 using System.Text;
 using TunBasedBattler.Models;
 using TunBasedBattler.Models.DTOs;
+using TurnBasedBattler.Views;
 
 namespace TunBasedBattler.Services
 {
     public class PlayerService
     {
+        private const int bossDamage = 1500;
+
+        private int bossHealth = 150;
+
         private readonly tunbasedbattlerContext dbContext;
         public PlayerService(tunbasedbattlerContext dbContext)
         {
@@ -63,7 +68,7 @@ namespace TunBasedBattler.Services
                 throw new ArgumentException("Failed to confirm the deletion process");
             }
 
-            foreach (var hero in this.dbContext.Heroes)
+            foreach (var hero in this.dbContext.Heroes.Where(p => p.PlayerId == id))
             {
                 this.dbContext.Heroes.Remove(hero);
             }
@@ -71,6 +76,80 @@ namespace TunBasedBattler.Services
             this.dbContext.Players.Remove(dbContext.Players.FirstOrDefault(p => p.Id == id));
             this.dbContext.SaveChanges();
 
+        }
+
+        public void VerifyBattle(PlayerViewModel player, List<string> heroes)
+        {
+            foreach (var hero in heroes)
+            {
+                if (player.Heroes.FirstOrDefault(h => h.Name == hero) == null)
+                {
+                    throw new ArgumentException($"Player {player.Username} doesn't have a Hero named {hero}");
+                }
+            }
+        }
+
+        public void Battle(PlayerViewModel player, List<string> heroNames, BattleView battleView)
+        {
+            var firstHero = dbContext.Heroes.FirstOrDefault(h => h.Name == heroNames[0]);
+            var secondHero = dbContext.Heroes.FirstOrDefault(h => h.Name == heroNames[1]);
+            var thirdHero = dbContext.Heroes.FirstOrDefault(h => h.Name == heroNames[2]);
+
+            while (firstHero.Hp > 0 && secondHero.Hp > 0 && thirdHero.Hp > 0 && bossHealth > 0)
+            {
+                switch (battleView.GetNextHeroToAttack())
+                {
+                    case 1:
+                        BossTakeDamage(firstHero);
+                        BossDealDamage(firstHero);
+                        battleView.UpdateStatus(bossHealth, firstHero, secondHero, thirdHero);
+                        break;
+                    case 2:
+                        BossTakeDamage(firstHero);
+                        BossDealDamage(firstHero);
+                        battleView.UpdateStatus(bossHealth, firstHero, secondHero, thirdHero);
+                        break;
+                    case 3:
+                        BossTakeDamage(firstHero);
+                        BossDealDamage(firstHero);
+                        battleView.UpdateStatus(bossHealth, firstHero, secondHero, thirdHero);
+                        break;
+                }
+            }
+
+            if (bossHealth <= 0)
+            {
+                battleView.Success();
+            }
+            else
+            {
+                battleView.Failiure();
+            }
+
+            if (dbContext.Heroes.FirstOrDefault(h => h.Hp <= 0) != null)
+            {
+                dbContext.Heroes.Remove(dbContext.Heroes.FirstOrDefault(h => h.Hp <= 0));
+                dbContext.SaveChanges();
+
+            }
+        }
+
+        private void BossDealDamage(Hero hero)
+        {
+            dbContext.Heroes.FirstOrDefault(h => h == hero).Hp -= bossDamage;
+            dbContext.SaveChanges();
+        }
+
+        private void BossTakeDamage(Hero hero)
+        {
+            if (hero.Attack >= hero.Magic)
+            {
+                bossHealth -= hero.Attack;
+            }
+            else
+            {
+                bossHealth -= hero.Magic;
+            }
         }
 
         public List<string> GetAllPlayerNames()

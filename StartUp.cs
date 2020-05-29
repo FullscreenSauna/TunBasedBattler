@@ -89,6 +89,9 @@ namespace TunBasedBattler
                         homeController.DeletePlayer();
                         GetStartMenu();
                         break;
+                    case ConsoleKey.D6:
+                        homeController.InitiateBattle();
+                        break;
                     case ConsoleKey.D8:
                         GetStartMenu();
                         break;
