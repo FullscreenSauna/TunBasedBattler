@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\IT\\TunBasedBattler\\TurnBasedBattler.csproj": {}
+    "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj": {}
   },
   "projects": {
-    "D:\\IT\\TunBasedBattler\\TurnBasedBattler.csproj": {
+    "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IT\\TunBasedBattler\\TurnBasedBattler.csproj",
+        "projectUniqueName": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj",
         "projectName": "TurnBasedBattler",
-        "projectPath": "D:\\IT\\TunBasedBattler\\TurnBasedBattler.csproj",
-        "packagesPath": "C:\\Users\\АлександърДжеков\\.nuget\\packages\\",
-        "outputPath": "D:\\IT\\TunBasedBattler\\obj\\",
+        "projectPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj",
+        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\АлександърДжеков\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

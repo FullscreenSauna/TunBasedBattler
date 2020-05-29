@@ -68,6 +68,7 @@ namespace TurnBasedBattler.Services
                 }
                 else
                 {
+                    //never
                     return $"You don`t have hero {name}";
                 }
             }
