@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TurnBasedBattler.Models.DTOs;
+using TunBasedBattler.Models.DTOs;
 
-namespace TurnBasedBattler.Views
+namespace TunBasedBattler.Views
 {
     public class PlayerView
     {

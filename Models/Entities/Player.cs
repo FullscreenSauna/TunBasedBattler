@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TurnBasedBattler.Models
+namespace TunBasedBattler.Models
 {
     public class Player
     {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace TurnBasedBattler.Models
+namespace TunBasedBattler.Models
 {
     public partial class tunbasedbattlerContext : DbContext
     {

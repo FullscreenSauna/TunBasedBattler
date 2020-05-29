@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TurnBasedBattler.Models.Entities.Heroes
+namespace TunBasedBattler.Models.Entities.Heroes
 {
     class Wizzard : Hero
     {

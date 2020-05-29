@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using TurnBasedBattler.Models;
-using TurnBasedBattler.Models.DTOs;
+using TunBasedBattler.Models;
+using TunBasedBattler.Models.DTOs;
 
-namespace TurnBasedBattler.Services
+namespace TunBasedBattler.Services
 {
     public class PlayerService
     {
@@ -116,9 +116,22 @@ namespace TurnBasedBattler.Services
             return heroViewModels;
         }
 
-        private bool Exists(string name)
+        public bool Exists(string name)
         {
             Player player = dbContext.Players.Where(p => p.Username == name).FirstOrDefault();
+            if (player == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public bool Exists(int id)
+        {
+            Player player = dbContext.Players.Where(p => p.Id == id).FirstOrDefault();
             if (player == null)
             {
                 return false;
