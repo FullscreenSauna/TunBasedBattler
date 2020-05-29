@@ -22,10 +22,11 @@ namespace TurnBasedBattler.Views
             return heroNames;
         }
 
-        public int GetNextHeroToAttack()
+        public string GetNextHeroToAttack()
         {
-            Console.WriteLine("Which hero should attack 1/2/3");
-            return int.Parse(Console.ReadLine());
+            Console.WriteLine("Which hero should attack 1./2./3.");
+            
+            return Console.ReadKey().Key.ToString();
         }
 
         public void UpdateStatus(int bossHealth, Hero firstHero, Hero secondHero, Hero thirdHero)

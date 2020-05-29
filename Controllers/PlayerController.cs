@@ -85,7 +85,7 @@ namespace TunBasedBattler.Controllers
             try
             {
                 playerService.VerifyBattle(player, heroNames);
-                playerService.Battle(player, heroNames, battleView);
+                playerService.Battle(heroNames, battleView);
 
             }
             catch (ArgumentException ex)

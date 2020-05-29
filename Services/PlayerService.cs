@@ -82,14 +82,14 @@ namespace TunBasedBattler.Services
         {
             foreach (var hero in heroes)
             {
-                if (player.Heroes.FirstOrDefault(h => h.Name == hero) == null)
+                if (dbContext.Heroes.FirstOrDefault(h => h.Name == hero) == null)
                 {
                     throw new ArgumentException($"Player {player.Username} doesn't have a Hero named {hero}");
                 }
             }
         }
 
-        public void Battle(PlayerViewModel player, List<string> heroNames, BattleView battleView)
+        public void Battle(List<string> heroNames, BattleView battleView)
         {
             var firstHero = dbContext.Heroes.FirstOrDefault(h => h.Name == heroNames[0]);
             var secondHero = dbContext.Heroes.FirstOrDefault(h => h.Name == heroNames[1]);
@@ -99,17 +99,17 @@ namespace TunBasedBattler.Services
             {
                 switch (battleView.GetNextHeroToAttack())
                 {
-                    case 1:
+                    case "1":
                         BossTakeDamage(firstHero);
                         BossDealDamage(firstHero);
                         battleView.UpdateStatus(bossHealth, firstHero, secondHero, thirdHero);
                         break;
-                    case 2:
+                    case "2":
                         BossTakeDamage(firstHero);
                         BossDealDamage(firstHero);
                         battleView.UpdateStatus(bossHealth, firstHero, secondHero, thirdHero);
                         break;
-                    case 3:
+                    case "3":
                         BossTakeDamage(firstHero);
                         BossDealDamage(firstHero);
                         battleView.UpdateStatus(bossHealth, firstHero, secondHero, thirdHero);
