@@ -34,6 +34,7 @@ namespace TunBasedBattler.Views
             //Console.WriteLine("6.Battle");
             Console.WriteLine("4.Delete Hero");
             Console.WriteLine("5.Delete Player");
+            Console.WriteLine("6.Battle");
             Console.WriteLine("8.Return to start menu");
             Console.WriteLine("9.Exit");
         }
