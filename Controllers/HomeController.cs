@@ -7,7 +7,6 @@ using TunBasedBattler.Models;
 using TunBasedBattler.Models.DTOs;
 using TunBasedBattler.Services;
 using TunBasedBattler.Views;
-using TurnBasedBattler.Controllers;
 
 namespace TunBasedBattler.Controllers
 {
@@ -15,14 +14,12 @@ namespace TunBasedBattler.Controllers
     {
         private HeroController heroController;
         private PlayerController playerController;
-        private  BattleControler battleControler;
         private readonly HomeView homeView;
 
         public HomeController(tunbasedbattlerContext dbContext)
         {
             this.heroController = new HeroController(dbContext);
             this.playerController = new PlayerController(dbContext);
-            this.battleControler = new BattleControler(dbContext);
             homeView = new HomeView();
         }
 

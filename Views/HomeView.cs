@@ -31,7 +31,6 @@ namespace TunBasedBattler.Views
             Console.WriteLine("1.Create hero");
             Console.WriteLine("2.Player status");
             Console.WriteLine("3.Hero status");
-            //Console.WriteLine("6.Battle");
             Console.WriteLine("4.Delete Hero");
             Console.WriteLine("5.Delete Player");
             Console.WriteLine("6.Battle");
