@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TurnBasedBattler.Models;
+using TunBasedBattler.Models;
 
-namespace TurnBasedBattler.Migrations
+namespace TunBasedBattler.Migrations
 {
     [DbContext(typeof(tunbasedbattlerContext))]
     partial class tunbasedbattlerContextModelSnapshot : ModelSnapshot
@@ -16,7 +16,7 @@ namespace TurnBasedBattler.Migrations
                 .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("TurnBasedBattler.Models.Heroes", b =>
+            modelBuilder.Entity("TunBasedBattler.Models.Heroes", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace TurnBasedBattler.Migrations
                     b.ToTable("heroes");
                 });
 
-            modelBuilder.Entity("TurnBasedBattler.Models.Players", b =>
+            modelBuilder.Entity("TunBasedBattler.Models.Players", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -96,9 +96,9 @@ namespace TurnBasedBattler.Migrations
                     b.ToTable("players");
                 });
 
-            modelBuilder.Entity("TurnBasedBattler.Models.Heroes", b =>
+            modelBuilder.Entity("TunBasedBattler.Models.Heroes", b =>
                 {
-                    b.HasOne("TurnBasedBattler.Models.Players", "Player")
+                    b.HasOne("TunBasedBattler.Models.Players", "Player")
                         .WithMany("Heroes")
                         .HasForeignKey("PlayerId")
                         .HasConstraintName("fk_heroes_players")

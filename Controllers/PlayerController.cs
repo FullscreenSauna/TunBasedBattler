@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TurnBasedBattler.Models;
-using TurnBasedBattler.Models.DTOs;
-using TurnBasedBattler.Services;
-using TurnBasedBattler.Views;
+using TunBasedBattler.Models;
+using TunBasedBattler.Models.DTOs;
+using TunBasedBattler.Services;
+using TunBasedBattler.Views;
 
-namespace TurnBasedBattler.Controllers
+namespace TunBasedBattler.Controllers
 {
     public class PlayerController
     {

@@ -2,12 +2,12 @@
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
 using System.Security.Cryptography.X509Certificates;
-using TurnBasedBattler.Controllers;
-using TurnBasedBattler.Models;
-using TurnBasedBattler.Models.DTOs;
-using TurnBasedBattler.Services;
+using TunBasedBattler.Controllers;
+using TunBasedBattler.Models;
+using TunBasedBattler.Models.DTOs;
+using TunBasedBattler.Services;
 
-namespace TurnBasedBattler
+namespace TunBasedBattler
 {
     class Program
     {

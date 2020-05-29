@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TurnBasedBattler.Models;
-using TurnBasedBattler.Models.DTOs;
-using TurnBasedBattler.Models.Entities;
-using TurnBasedBattler.Models.Entities.Heroes;
-using TurnBasedBattler.Views;
+using TunBasedBattler.Models;
+using TunBasedBattler.Models.DTOs;
+using TunBasedBattler.Models.Entities;
+using TunBasedBattler.Models.Entities.Heroes;
+using TunBasedBattler.Views;
 
-namespace TurnBasedBattler.Services
+namespace TunBasedBattler.Services
 {
     public class HeroService
     {

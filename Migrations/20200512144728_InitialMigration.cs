@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.Data.EntityFrameworkCore.Metadata;
 
-namespace TurnBasedBattler.Migrations
+namespace TunBasedBattler.Migrations
 {
     public partial class InitialMigration : Migration
     {

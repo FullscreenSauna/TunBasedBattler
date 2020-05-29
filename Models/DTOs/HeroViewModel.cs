@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TurnBasedBattler.Models.DTOs
+namespace TunBasedBattler.Models.DTOs
 {
     public class HeroViewModel
     {

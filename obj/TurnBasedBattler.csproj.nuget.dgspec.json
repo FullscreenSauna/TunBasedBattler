@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj": {}
+    "C:\\Users\\Alex\\Documents\\LastTunBasedBattler\\TunBasedBattler\\TurnBasedBattler.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj": {
+    "C:\\Users\\Alex\\Documents\\LastTunBasedBattler\\TunBasedBattler\\TurnBasedBattler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj",
+        "projectUniqueName": "C:\\Users\\Alex\\Documents\\LastTunBasedBattler\\TunBasedBattler\\TurnBasedBattler.csproj",
         "projectName": "TurnBasedBattler",
-        "projectPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\TurnBasedBattler.csproj",
+        "projectPath": "C:\\Users\\Alex\\Documents\\LastTunBasedBattler\\TunBasedBattler\\TurnBasedBattler.csproj",
         "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alex\\Documents\\Battlers_ShashoX2\\TunBasedBattler\\obj\\",
+        "outputPath": "C:\\Users\\Alex\\Documents\\LastTunBasedBattler\\TunBasedBattler\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

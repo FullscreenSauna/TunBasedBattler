@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TurnBasedBattler.Controllers;
-using TurnBasedBattler.Models;
+using TunBasedBattler.Controllers;
+using TunBasedBattler.Models;
 
-namespace TurnBasedBattler
+namespace TunBasedBattler
 {
     public class StartUp
     {
@@ -21,7 +21,7 @@ namespace TurnBasedBattler
         private void GameTitle()
         {
             //Make it big
-            Console.WriteLine("TurnBasedBattler");
+            Console.WriteLine("TunBasedBattler");
         }
 
         private void GetStartMenu()

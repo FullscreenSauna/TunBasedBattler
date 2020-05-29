@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using TurnBasedBattler.Models;
-using TurnBasedBattler.Models.DTOs;
+using TunBasedBattler.Models;
+using TunBasedBattler.Models.DTOs;
 
-namespace TurnBasedBattler.Services
+namespace TunBasedBattler.Services
 {
     public class PlayerService
     {
