@@ -99,17 +99,17 @@ namespace TunBasedBattler.Services
             {
                 switch (battleView.GetNextHeroToAttack())
                 {
-                    case "1":
+                    case "D1":
                         BossTakeDamage(firstHero);
                         BossDealDamage(firstHero);
                         battleView.UpdateStatus(bossHealth, firstHero, secondHero, thirdHero);
                         break;
-                    case "2":
+                    case "D2":
                         BossTakeDamage(firstHero);
                         BossDealDamage(firstHero);
                         battleView.UpdateStatus(bossHealth, firstHero, secondHero, thirdHero);
                         break;
-                    case "3":
+                    case "D3":
                         BossTakeDamage(firstHero);
                         BossDealDamage(firstHero);
                         battleView.UpdateStatus(bossHealth, firstHero, secondHero, thirdHero);

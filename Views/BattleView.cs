@@ -16,7 +16,7 @@ namespace TurnBasedBattler.Views
             heroNames.Add(Console.ReadLine());
             Console.WriteLine("Choose second hero:");
             heroNames.Add(Console.ReadLine());
-            Console.WriteLine("Choose second hero:");
+            Console.WriteLine("Choose third hero:");
             heroNames.Add(Console.ReadLine());
 
             return heroNames;
